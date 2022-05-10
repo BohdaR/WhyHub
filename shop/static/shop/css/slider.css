@@ -1,0 +1,38 @@
+.slider-container{
+  margin-left: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.slider{
+  display: flex;
+  position: relative;
+  width: 500px;
+  height: 450px; 
+  overflow: hidden;
+  align-items: center;
+}
+
+.some-block>button{
+  border: none;
+  background-color: #fff;
+}
+
+.some-block>button>i{
+  color: black;
+  transition: all 0.3s ease 0.05s;
+}
+
+.some-block>button>i:hover {
+  color: rgb(117, 35, 124);
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.slide-img{
+  position: absolute;
+  width: 400px;
+  padding: 50px;
+  opacity: 0;
+  transition: all 1s;
+}

@@ -1,0 +1,139 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="uk-ua">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      {% block css-files %}{% endblock %}
+      <script src="https://kit.fontawesome.com/8abd8374d8.js" crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="{% static 'shop/css/default.css' %}" />
+      <link rel="stylesheet" href="{% static 'shop/css/header.css' %}" />
+      <link rel="stylesheet" href="{% static 'shop/css/main.css' %}" />
+      <link rel="stylesheet" href="{% static 'shop/css/footer.css' %}" />
+      <title>{% block title %}{% endblock %}</title>
+    </head>
+  <body>
+    <div class="page-wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="logo-wrapper">
+            <a href="{% url 'product_list' %}" class="nav-link"><img class="logo-img" src="{% static 'shop/img/logo.png' %}" alt=""></a>
+          </div>
+          <div class="search-wrapper">
+            <form action="{% url 'product_list' %}" method="get">
+              <input name="q" class="search-input" type="input" placeholder="Пошук...">
+              <button class="search-buttton">Знайти</button>
+            </form>
+          </div>
+          <div class="nav-list-wrapper">
+            <nav>
+              <ul>
+                {% if request.user.is_authenticated %}
+                <li class="nav-list-item">
+                  <a href="{% url 'cart:cart_detail' %}" class="nav-link">
+                    <i class="fa-regular fa-heart fa-lg"></i>
+                  </a>
+                </li>
+                <li class="nav-list-item">
+                  <a href="{% url 'cart:cart_detail' %}" class="nav-link">
+                    <i class="fa-solid fa-cart-shopping fa-lg"></i>
+                  </a>
+                </li>
+                <li class="nav-list-item">
+                  {{ user.username }} | <a href="{% url 'logout' %}" class="nav-link">Вийти</a>
+                </li>
+                {% else %}
+                <li class="nav-list-item">
+                  <a href="{% url 'cart:cart_detail' %}" class="nav-link">
+                    <i class="fa-regular fa-user fa-lg"></i>
+                  </a>
+                </li>
+                <li class="nav-list-item">
+                  <a href="{% url 'cart:cart_detail' %}" class="nav-link">
+                    <i class="fa-regular fa-heart fa-lg"></i>
+                  </a>
+                </li>
+                <li class="nav-list-item">
+                  <a href="{% url 'cart:cart_detail' %}" class="nav-link">
+                    <i class="fa-solid fa-cart-shopping fa-lg"></i>
+                  </a>
+                </li>
+                <li class="nav-list-item">
+                  <a href="{% url 'login' %}" class="nav-link">Увійти</a> | <a href="{% url 'register' %}" class="nav-link">Реєстрація</a>
+                </li>
+                {% endif %}
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="korable">
+          <p><i class="fa-solid fa-ship"> РУСКИЙ ВОЄНИЙ КОРАБЛЬ ІДИ НА*УЙ !</i></p>
+        </div>
+      </header>
+      <main>
+        {% block content %}
+        {% endblock %}
+          {% if page_obj.has_other_pages %}
+          <nav class="list-pages">
+            <ul>
+              {% if page_obj.has_previous %}
+                <li class="page-number">
+                  <a href="?page={{ page_obj.previous_page_number }}">&lt;</a>
+                </li>
+              {% endif %}
+              {% for p in paginator.page_range %}
+                {% if page_obj.number ==  p %}
+                  <li class="page-number page-number-selected">
+                    <a href="?page={{ p }}">{{ p }}</a>
+                  </li>
+                {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %}
+                  <li class="page-number">
+                    <a href="?page={{ p }}">{{ p }}</a>
+                  </li>
+                {% endif %} 
+              {% endfor %}
+              {% if page_obj.has_next %}
+                <li class="page-number">
+                  <a href="?page={{ page_obj.next_page_number }}">&gt;</a>
+                </li>
+              {% endif %}
+            </ul>
+          </nav>
+        {% endif %}
+        <a id="upbutton" href="#" onclick="smoothJumpUp(); return false;">
+          <i class="fas fa-chevron-up fa-2xl"></i>
+        </a>
+      </main>
+      <footer class="footer-site">
+        <div class="container">
+          <div class="logo-wrapper">
+            <a href="{% url 'product_list' %}" class="nav-link"><img class="logo-img" src="{% static 'shop/img/logo.png' %}" alt=""></a>
+            <div class="infofooter">
+            <p>Наші Контакти</p>
+            <p>067-339-4527</p>
+            </div>
+          </div>
+          <div>
+            <p  class="social">Ми в соц.мережах</p><br>
+            <ul class="widget-social">
+              <li>
+                <a href="" i class="fa-brands fa-instagram fa-2xl"></i></a>
+              </li>
+              <li>
+                <a href="" i class="fa-brands fa-facebook fa-2xl"></i></a>
+              </li>
+              <li>
+                <a href="" i class="fa-brands fa-twitter fa-2xl"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+      {% block js-filles %}{% endblock %}
+      <script type="text/javascript" src="{% static 'shop/js/jquery.js' %}"></script>
+    </div>
+  </body>
+</html>

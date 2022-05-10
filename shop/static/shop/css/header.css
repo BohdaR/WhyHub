@@ -1,0 +1,63 @@
+.logo-img{
+    width: 10rem;
+    margin-top: 1rem;
+    margin-bottom: 0.6rem;
+}
+
+.header{
+    background-color: rgb(0, 0, 0);
+}
+
+.header > .container{
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-list-item{
+    display: inline-block;
+    color: rgb(255, 255, 255);
+    margin: 0px 1rem;
+}
+
+.nav-list-item:last-child{
+    margin: 0px 0px 0px 1rem ;
+}
+
+.nav-link{
+    color: white;
+}
+
+.nav-link:hover{
+    transition: all 0.1s ease 0s;
+    color: rgb(65, 0, 187);
+}
+
+.search-input{
+    font-size: large;
+    width: 30vw;
+    padding: 0.4rem;
+    border-radius: 12px;
+    border: 0;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.06);
+}
+
+.search-buttton{
+    font-size: large;
+    background-color: rgb(65, 0, 187);
+    width: 5rem;
+    padding: 0.4rem;
+    border-radius: 8px;
+    border: 0;
+    box-shadow: 4px 4px 10px rgba(250, 248, 248, 0.06);
+    color: white;
+}
+
+.search-buttton:hover{
+    background-color: rgb(65, 0, 187);
+}
+.korable{
+    text-align: center;
+    background: rgb(20, 20, 20);
+    padding: 15px;
+    color: white;
+}

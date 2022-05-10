@@ -1,0 +1,39 @@
+.sizeimg{
+    font-weight: 200px;
+    height: 200px;
+    margin: 5px;
+}
+.alingcenter{
+    text-align: center;
+    border-collapse: collapse;
+    margin: 5px;
+}
+.p{
+    margin: 30px;
+    font-size:50px;
+}
+.colora{
+    color: black;
+}
+.colorhref{
+    color: rgb(255, 255, 255);
+    border: solid;
+    background-color: #1fad0c;
+  border: 10px solid #1fad0c;
+  border-radius: 5px;
+}
+.colortable1{
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+.colortable2{
+    background-color: rgb(255, 255, 255);
+}
+.text-right{
+    margin: 20px;
+    text-align: right;
+}
+
+.empty-cart{
+    text-align: center;
+}

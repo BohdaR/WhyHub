@@ -1,0 +1,46 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block css-files %} 
+    <link rel="stylesheet" href="{% static 'orders/css/orders.css' %}" />
+{% endblock %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="order-form">
+        <h3>Ваше замовлення</h3>
+        <form method="post">
+            <div class="order-form-item">
+                {% csrf_token %}
+            </div>
+            {% for f in form %}
+            <div class="order-form-item">
+                {{ f }}
+                <div class="form-error">
+                    {{ f.errors }}
+                </div>
+            </div>
+            {% endfor %}
+            <button class="order-button" type="submit">Оформити замовлення</button>
+        </form>
+    </div>
+    <div class="order-info-list">
+        {% for item in cart %}
+        <div class="order-product-item">
+            <div class="order-item-content">
+                <div class="order-image-wrapper">
+                    <img class="order-product-image" src="{{ item.product.main_image.url }}">
+                </div>
+                <p class="order-item-name">
+                   <strong>{{ item.quantity }}x</strong> {{ item.product.name }}
+                </p>
+            </div>
+            <h5 class="order-item-price">{{ item.total_price }}₴</h5>
+        </div>
+        {% endfor %}
+        <p class="order-total-price">Сума замовлення: {{ cart.get_total_price }}₴</p>
+    </div>
+</div>
+{% endblock %}

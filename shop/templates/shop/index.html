@@ -1,0 +1,52 @@
+{% extends 'shop/base.html' %}
+{% load shop_tags %}
+{% load static %}
+
+  
+{% block title %} 
+  {{ title }}
+{% endblock %}
+
+  {% block content %}
+    {% get_cats as categories %}
+    <div class="container">
+      {% show_categories cat_selected=cat_selected %}
+      <div class="products-table">
+        {% if products %} 
+        {% for el in products %}
+          <div class="card">
+            <div class="product-card">
+              {% if el.old_price %}<div class="badge">Знижка!</div> {% endif %}
+              <div class="product-tumb">
+                {% if el.main_image %}
+                  <a href="{{ el.get_absolute_url }}">
+                    <img src="{{ el.main_image.url }}" class="product-card-image" alt="">
+                  </a>
+                {% endif %}
+              </div>
+              <div class="product-details">
+                <span class="product-catagory">{{ el.category }}</span>
+                <h4><a href="{{ el.get_absolute_url }}">{{ el.name }}</a></h4>
+                <p>{{ el.description }}</p>
+                <div class="product-bottom-details">
+                  <div class="product-price">{{ el.price }}₴</div>
+                  <div class="product-links">
+                    <form action="{% url "cart:cart_add" el.pk %}" method="post">
+                      <p style="display: none;">{{ cart_product_form.quantity }}</p>
+                      {{ cart_product_form.update }}
+                      {% csrf_token %}
+                      <button type="submit" class="submit-button"><a href=""><i class="fa fa-shopping-cart"></i></a></button>
+                      <a href=""><i class="fa fa-heart"></i></a>
+                  </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        {% else %}
+          <p>У нас немає товарів</p>
+        {% endif %}
+      </div>
+    </div>
+{% endblock %}
