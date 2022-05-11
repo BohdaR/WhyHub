@@ -10,6 +10,13 @@
     pip3 install -r requirements.txt
     touch .env
     while read file; do export ${file}; done < .env
-    python3 manage.py runserver
+
+## production mode run
+
+    python3 manage.py runserver --settings WhyHub.settings.prod
+
+## developer mode run
+    
+    python3 manage.py runserver --settings WhyHub.settings.dev
 
 # Good luck!
