@@ -6,7 +6,6 @@ from .forms import *
 from django.views.generic import ListView, DetailView, CreateView
 from django.urls import reverse_lazy
 from django.db.models import Q
-from cart.forms import CartAddProductForm
 
 
 class Home(DataMixin, ListView):
@@ -93,8 +92,3 @@ class LoginUser(DataMixin, LoginView):
 def logout_user(request):
     logout(request)
     return redirect('login')
-
-
-
-
-
