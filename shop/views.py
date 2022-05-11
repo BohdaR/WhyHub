@@ -9,7 +9,6 @@ from django.db.models import Q
 
 
 class Home(DataMixin, ListView):
-    model = Product
     template_name = 'shop/index.html'
     context_object_name = 'products'
 
@@ -26,8 +25,7 @@ class Home(DataMixin, ListView):
             return Product.objects.filter(available=True).select_related('category')
 
 
-class ProductList(DataMixin, ListView):
-    model = Product
+class ProductListByCategory(DataMixin, ListView):
     template_name = 'shop/index.html'
     context_object_name = 'products'
     allow_empty = False
@@ -38,10 +36,10 @@ class ProductList(DataMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['product_image'] = ProductImages.objects.all()
-        c = Category.objects.get(slug=self.kwargs['category_slug'])
+        category = Category.objects.get(slug=self.kwargs['category_slug'])
         c_def = self.get_user_context(
-            title='Категорія - ' + str(c.name),
-            cat_selected=c.id)
+            title='Категорія - ' + str(category.name),
+            cat_selected=category.id)
         return dict(list(context.items()) + list((c_def.items())))
 
 
@@ -56,19 +54,13 @@ class ProductDetail(DataMixin, DetailView):
         context = super().get_context_data(**kwargs)
         context['characteristics'] = Characteristic.objects.all().filter(product_id=context['product'].id)
         context['product_image'] = ProductImages.objects.all().filter(product_id=context['product'].id)
-        c_def = self.get_user_context(title = context['product'].name)
+        c_def = self.get_user_context(title=context['product'].name)
         return dict(list(context.items()) + list((c_def.items())))
 
 
 class RegisterUser(DataMixin, CreateView):
     form_class = RegisterUserForm
     template_name = 'shop/register.html'
-    success_url = reverse_lazy('login')
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title = 'Реєстрація')
-        return dict(list(context.items()) + list((c_def.items())))
 
     def form_valid(self, form):
         user = form.save()
@@ -76,14 +68,9 @@ class RegisterUser(DataMixin, CreateView):
         return redirect('product_list')
 
 
-class LoginUser(DataMixin, LoginView):
+class LoginUser(LoginView):
     form_class = LoginUserForm
     template_name = 'shop/login.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title = 'Вхід')
-        return dict(list(context.items()) + list((c_def.items())))
 
     def get_success_url(self):
         return reverse_lazy('product_list')

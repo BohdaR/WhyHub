@@ -15,9 +15,9 @@ class OrderCreate(FormView):
         order = form.save()
         for item in cart:
             OrderItem.objects.create(order=order,
-                                        product=item['product'],
-                                        price=item['price'],
-                                        quantity=item['quantity'])
+                                     product=item['product'],
+                                     price=item['price'],
+                                     quantity=item['quantity'])
         cart.clear()
         return render(self.request, 'orders/created.html',
                       {'order': order})
@@ -25,13 +25,6 @@ class OrderCreate(FormView):
     def form_invalid(self, form):
         """If the form is invalid, render the invalid form."""
         return self.render_to_response(self.get_context_data(form=form))
-
-
-
-
-
-
-
 
 # def order_create(request):
 #     cart = Cart(request)
