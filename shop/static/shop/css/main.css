@@ -1,3 +1,22 @@
+/* .page-wrapper{
+    max-width: 1900px;
+    margin: 0px auto;
+ } */
+@media screen and (max-width:1200px) {
+    /* .page-wrapper{
+        max-width: 970px;
+    } */
+}
+@media screen and (max-width:992px) {
+    /* .page-wrapper{
+        max-width: 750px;
+    } */
+}
+@media screen and (max-width:767px) {
+    /* .page-wrapper{
+        max-width: none;
+    } */
+}
 .main > .container{
     display: flex;
 }
@@ -196,7 +215,7 @@
 
 @media screen and (max-width: 1200px) {
     .container{
-        width: 1080px;
+        max-width: 1080px;
     }
     .card {
       width: 50%;

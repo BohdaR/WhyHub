@@ -67,9 +67,7 @@
                 <p>{{ product.price }} ₴</p>
                 <form action="{% url "cart:cart_add" product.pk %}" method="post">
                     <div class="quantity-wrapper">
-                        <div class="quantity">
-                            {{ cart_product_form.quantity }}
-                        </div>
+                        <p style="display: none;">{{ cart_product_form.quantity }}</p>
                     </div>
                     {% csrf_token %}
                     <button type="submit" class="cart-btn">Купити</button>

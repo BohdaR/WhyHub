@@ -85,7 +85,7 @@ input[type=number] {
 .quantity-button {
     position: relative;
     cursor: pointer;
-    border-left: 1px solid #eee;
+    border: none;
     width: 20px;
     text-align: center;
     color: #333;

@@ -1,4 +1,4 @@
-jQuery('<div class="quantity-nav"><div class="quantity-button quantity-up">+</div><div class="quantity-button quantity-down">-</div></div>').insertAfter('.quantity input');
+jQuery('<div class="quantity-nav"><button class="quantity-button quantity-up" type="submit">+</button><button class="quantity-button quantity-down" type="submit">-</button></div>').insertAfter('.quantity input');
     jQuery('.quantity').each(function() {
       var spinner = jQuery(this),
         input = spinner.find('input[type="number"]'),
