@@ -14,12 +14,12 @@
 
     touch .env
     while read file; do export ${file}; done < .env
-    python .\manage.py migrate --settings WhyHub.settings.prod
+    python3 manage.py migrate --settings WhyHub.settings.prod
     python3 manage.py runserver --settings WhyHub.settings.prod
 
 ## developer mode run
     
-    python .\manage.py migrate --settings WhyHub.settings.dev
+    python3 manage.py migrate --settings WhyHub.settings.dev
     python3 manage.py runserver --settings WhyHub.settings.dev
     
 # 2. How to run on Windows(developer mode)
