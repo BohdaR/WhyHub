@@ -93,7 +93,7 @@
                   </li>
                 {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %}
                   <li class="page-number">
-                    <a href="?page={{ p }}">{{ p }}</a>
+                    <a href="?page={{ p }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">{{ p }}</a>
                   </li>
                 {% endif %} 
               {% endfor %}

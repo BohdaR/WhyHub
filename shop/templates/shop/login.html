@@ -13,12 +13,12 @@
 <div class="container">
     <div class="authentication-form">
         <form method="post">
+            <div class="form-error">
+                {{ form.non_field_errors }}
+            </div>
             {% for f in form %}
             <div class="authentication-form-item">
                 {{ f }}
-                <div class="form-error">
-                    {{ f.errors }}
-                </div>
             </div>
             {% csrf_token %}
             {% endfor %}
