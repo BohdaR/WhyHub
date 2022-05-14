@@ -54,6 +54,10 @@ class ProductDetail(DataMixin, DetailView):
         context = super().get_context_data(**kwargs)
         context['characteristics'] = Characteristic.objects.all().filter(product_id=context['product'].id)
         context['product_image'] = ProductImages.objects.all().filter(product_id=context['product'].id)
+        context['similar_products'] = Product.objects.filter(id__lt=context['product'].id)[:5]
+        if len(context['similar_products']) < 5:
+            context['similar_products'] = Product.objects.filter(id__gt=context['product'].id).order_by('pk')[:5]
+
         c_def = self.get_user_context(title=context['product'].name)
         return dict(list(context.items()) + list((c_def.items())))
 
