@@ -2,7 +2,7 @@ html {
   font-family: "Roboto", sans-serif;
 }
 
-.left-columb {
+.left-column {
   width: 50%;
 }
 
@@ -15,7 +15,7 @@ html {
   padding: 20%;
 }
 
-.right-columb {
+.right-column {
   width: 50%;
 }
 
@@ -92,7 +92,7 @@ html {
   margin: 20px 0px;
 }
 
-.catagory-link{
+.category-link{
   margin: 20px 10px 0px 0px;
 }
 
@@ -113,7 +113,7 @@ html {
   max-width: 100%;
 }
 
-.xarakteristick-label{
+.characteristic-label{
   margin-bottom: 60px;
   font-size: 35px;
 }
@@ -211,12 +211,9 @@ html {
 
 /* Responsive */
 @media (max-width: 940px) {
-  .container {
-    flex-direction: column;
-  }
 
-  .left-columb,
-  .right-columb {
+  .left-column,
+  .right-column {
     width: 100%;
   }
 
