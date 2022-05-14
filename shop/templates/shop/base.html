@@ -29,10 +29,11 @@
             </form>
           </div>
           <div class="nav-list-wrapper">
-            <input type="checkbox" id="burger">
-            <label for="burger" class="burger"><i class="fa-solid fa-list"></i></label>
-            <nav>
-              <ul>
+            <div class="menu_icon">
+              <span></span>
+            </div>
+            <nav class="menu_body">
+              <ul class="menu_list">
                 {% if request.user.is_authenticated %}
                 <li class="nav-list-item">
                   <a href="{% url 'cart:cart_detail' %}" class="nav-link">
