@@ -10,7 +10,7 @@
 }
 
 .container {
-    width: 100%;
+    width: auto;
     padding: 0% 2%;
     display: flex;
 }
@@ -122,4 +122,5 @@ input[type=number] {
         width: 1920px;
         margin: auto;
     }
+    
 }
