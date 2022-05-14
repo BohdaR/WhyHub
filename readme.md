@@ -4,7 +4,7 @@
 
 ## 1. How to run on Linux/Ubuntu
 
-    sudo apt-get install python3.9 python3-pip
+    sudo apt-get install python3.9 python3-pip python3.9-venv python3.9-dev libmysqlclient-dev
     git clone https://github.com/BohdaR/WhyHub.git
     cd WhyHub
     python3 -m venv venv
