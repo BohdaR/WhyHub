@@ -5,28 +5,12 @@
     <link rel="stylesheet" href="{% static 'orders/css/orders.css' %}" />
 {% endblock %}
 
-{% block title %}Checkout{% endblock %}
+{% block title %}Оформлення замовлення{% endblock %}
 
 {% block content %}
 <div class="container">
-    <div class="order-form">
-        <h3>Ваше замовлення</h3>
-        <form method="post">
-            <div class="order-form-item">
-                {% csrf_token %}
-            </div>
-            {% for f in form %}
-            <div class="order-form-item">
-                {{ f }}
-                <div class="form-error">
-                    {{ f.errors }}
-                </div>
-            </div>
-            {% endfor %}
-            <button class="order-button" type="submit">Оформити замовлення</button>
-        </form>
-    </div>
     <div class="order-info-list">
+        <h2>Ваше замовлення</h2>
         {% for item in cart %}
         <div class="order-product-item">
             <div class="order-item-content">
@@ -41,6 +25,22 @@
         </div>
         {% endfor %}
         <p class="order-total-price">Сума замовлення: {{ cart.get_total_price }}₴</p>
+    </div>
+    <div class="order-form">
+        <form method="post">
+            <div class="order-form-item">
+                {% csrf_token %}
+            </div>
+            {% for f in form %}
+            <div class="order-form-item">
+                {{ f }}
+                <div class="form-error">
+                    {{ f.errors }}
+                </div>
+            </div>
+            {% endfor %}
+            <button class="order-button" type="submit">Оформити замовлення</button>
+        </form>
     </div>
 </div>
 {% endblock %}

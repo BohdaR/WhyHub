@@ -20,7 +20,7 @@ class OrderCreateForm(forms.ModelForm):
             'city':forms.TextInput(attrs={
                 'placeholder': 'Ваше місто'}),
             'delivery_method': forms.RadioSelect(attrs={
-                'class': 'order-chekbox'}),
+                'class': 'order-checkbox'}),
             'pay_method': forms.RadioSelect(attrs={
-                'class': 'order-chekbox'}),
+                'class': 'order-checkbox'}),
         }

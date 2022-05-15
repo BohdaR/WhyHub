@@ -11,8 +11,8 @@
     font-size: 18px;
 }
 
-.order-checkbox > li{
-    margin-bottom: 5px;
+.order-checkbox > div{
+    margin-bottom: 10px;
 }
 
 .order-checkbox > li > label > input{
@@ -62,6 +62,10 @@
     padding: 10px;
 }
 
+.order-info-list > h2{
+    margin-bottom: 10px;
+}
+
 .order-product-item{
     background-color: white;
     box-shadow: 2px 2px 2px  #dfdfdf, -2px -2px 2px #dfdfdf;
@@ -102,4 +106,20 @@
     padding: 10px;
     font-size: 18px;
     color: white;
+}
+
+@media screen and (max-width: 767px) {
+    .container{
+        flex-wrap: wrap;
+    }
+
+    .order-form{
+        width: 100%;
+        margin: 0 0 20px 0;
+    }
+
+    .order-info-list{
+        width: 100%;
+    }
+
 }
