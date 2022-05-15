@@ -53,7 +53,7 @@ class Product(models.Model):
         index_together = (('id', 'slug'),)
         verbose_name = 'product'
         verbose_name_plural = 'products'
-        ordering = ['-updated', '-created', '-id']
+        ordering = ['-price', 'updated', 'created', 'id']
 
     def __str__(self):
         return self.name
