@@ -31,18 +31,17 @@ jQuery('.quantity').each(function() {
 
 });
 
-
-$(document).on('click', '#cart_post_button',function(e){
+function put_on_cart(product_id) {
+    console.log(product_id);
     $.ajax({
-        type:'POST',
-        url:'/cart/add/'+$('input[name=product_id]').val()+'/',
-        data:{
-            update:$('input[name=update]').val(),
-            quantity:1,
-            csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
-            action: 'post'
+        type: 'POST',
+        url: '/cart/add/' + product_id + '/',
+        data: {
+            update:'True',
+            quantity: '1',
+            csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
         },
 
     });
     return false;
-});
+}

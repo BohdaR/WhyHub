@@ -167,17 +167,6 @@
     text-align: right;
 }
 
-.product-links a {
-    display: inline-block;
-    margin-left: 5px;
-    color: #e1e1e1;
-    transition: 0.3s;
-    font-size: 17px;
-}
-
-.product-links a:hover {
-    color: #fbb72c;
-}
 
 .form-error ul {
     list-style: none;
@@ -200,6 +189,16 @@
 .submit-button{
     border: none;
     background-color: white;
+    display: inline-block;
+    margin-left: 5px;
+    color: #e1e1e1;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+.submit-button:hover {
+    color: #9100ff;
+    cursor: pointer;
 }
 
 @media screen and (min-width: 1500px) {

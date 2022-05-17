@@ -4,47 +4,51 @@
 
 
 {% block title %}
-  {{ title }}
+    {{ title }}
 {% endblock %}
 
-  {% block content %}
+{% block content %}
     {% get_cats as categories %}
     <div class="container">
-      {% show_categories cat_selected=cat_selected %}
-      <div class="products-table">
-        {% if products %}
-        {% for el in products %}
-          <div class="card">
-            <div class="product-card">
-              {% if el.old_price %}<div class="badge">Знижка!</div> {% endif %}
-              <div class="product-tumb">
-                {% if el.main_image %}
-                  <a href="{{ el.get_absolute_url }}">
-                    <img src="{{ el.main_image.url }}" class="product-card-image" alt="">
-                  </a>
-                {% endif %}
-              </div>
-              <div class="product-details">
-                <span class="product-catagory">{{ el.category }}</span>
-                <h4><a href="{{ el.get_absolute_url }}">{{ el.name }}</a></h4>
-                <p>{{ el.description }}</p>
-                <div class="product-bottom-details">
-                  <div class="product-price">{{ el.price }}₴</div>
-                  <div class="product-links">
-                      <input type="hidden" name="product_id" value="{{ el.id }}">
-                      {{ cart_product_form.update }}
-                      {% csrf_token %}
-                      <button type="submit" id="cart_post_button" class="submit-button"><a href=""><i class="fa fa-shopping-cart"></i></a></button>
-                      <a href=""><i class="fa fa-heart"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        {% endfor %}
-        {% else %}
-          <p>У нас немає товарів</p>
-        {% endif %}
-      </div>
+        {% show_categories cat_selected=cat_selected %}
+        <div class="products-table">
+            {% if products %}
+                {% for el in products %}
+                    <div class="card">
+                        <div class="product-card">
+                            {% if el.old_price %}<div class="badge">Знижка!</div> {% endif %}
+                            <div class="product-tumb">
+                                {% if el.main_image %}
+                                    <a href="{{ el.get_absolute_url }}">
+                                        <img src="{{ el.main_image.url }}" class="product-card-image" alt="">
+                                    </a>
+                                {% endif %}
+                            </div>
+                            <div class="product-details">
+                                <span class="product-catagory">{{ el.category }}</span>
+                                <h4><a href="{{ el.get_absolute_url }}">{{ el.name }}</a></h4>
+                                <p>{{ el.description }}</p>
+                                <div class="product-bottom-details">
+                                    <div class="product-price">{{ el.price }}₴</div>
+                                    <div class="product-links">
+                                        <input type="hidden" name="product_id" value="{{ el.id }}">
+                                        {{ cart_product_form.update }}
+                                        {% csrf_token %}
+                                        <button onclick="put_on_cart({{ el.id }});" type="submit"  class="submit-button">
+                                            <i class="fa fa-shopping-cart"></i>
+                                        </button>
+                                        <button class="submit-button">
+                                            <i class="fa fa-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>У нас немає товарів</p>
+            {% endif %}
+        </div>
     </div>
 {% endblock %}
