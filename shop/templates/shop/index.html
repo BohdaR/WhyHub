@@ -2,8 +2,8 @@
 {% load shop_tags %}
 {% load static %}
 
-  
-{% block title %} 
+
+{% block title %}
   {{ title }}
 {% endblock %}
 
@@ -12,7 +12,7 @@
     <div class="container">
       {% show_categories cat_selected=cat_selected %}
       <div class="products-table">
-        {% if products %} 
+        {% if products %}
         {% for el in products %}
           <div class="card">
             <div class="product-card">
@@ -31,13 +31,11 @@
                 <div class="product-bottom-details">
                   <div class="product-price">{{ el.price }}₴</div>
                   <div class="product-links">
-                    <form action="{% url "cart:cart_add" el.pk %}" method="post">
-                      <p style="display: none;">{{ cart_product_form.quantity }}</p>
+                      <input type="hidden" name="product_id" value="{{ el.id }}">
                       {{ cart_product_form.update }}
                       {% csrf_token %}
-                      <button type="submit" class="submit-button"><a href=""><i class="fa fa-shopping-cart"></i></a></button>
+                      <button type="submit" id="cart_post_button" class="submit-button"><a href=""><i class="fa fa-shopping-cart"></i></a></button>
                       <a href=""><i class="fa fa-heart"></i></a>
-                  </form>
                   </div>
                 </div>
               </div>
