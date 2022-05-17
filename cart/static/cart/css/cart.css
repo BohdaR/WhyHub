@@ -1,7 +1,7 @@
 .size-img{
-    font-weight: 200px;
+    font-weight: auto;
     height: 200px;
-    margin: 5px;
+    margin: 10px;
 }
 .alingcenter{
     text-align: center;
@@ -14,6 +14,8 @@
 }
 .color{
     color: black;
+    text-align: center;
+    border: 1px solid black;
 }
 .color-href{
     color: rgb(255, 255, 255);
@@ -36,4 +38,31 @@
 
 .empty-cart{
     text-align: center;
+}
+/*Таблиця Корзини*/
+.table{
+    display: grid;
+    /* border-collapse: collapse; */
+}
+.caption{
+    display: table-caption;
+    text-align: center;
+}
+.thead{
+    display: table-header-group;
+}
+.tbody{
+    display: table-row-group;
+}
+.row{
+    display: table-row;
+    margin: 30px;
+}
+.tfoot{
+    display: table-footer-group;
+}
+.cell{
+    border: 1px solid black;
+    display: inline-table;
+    padding: 5px;    
 }

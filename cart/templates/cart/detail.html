@@ -14,23 +14,39 @@
   <p class="p">Мій кошик</p>
   {% if cart %}
     <table  class="alingcenter" width="99%">
-      <thead>
-        <tr class="colortable1">
-          <th>Видалити</th>
-          <th>Фото</th>
-          <th width="20%">Товар</th>
-          <th>Обновити кількість</th>
-          <!-- <th>Видалити</th> -->
-          <th>Кількість</th>
-          <th>Ціна за шт</th>
-          <th>Загальна сумма</th>
-        </tr>
-      </thead>
+      <div class="table">
+        <div class="caption"></div>
+        <div class="thead"> </div>
+        <div>
+          <div class="cell">Видалити</div>
+          <div class="cell">Фото</div>
+          <div class="cell">Товар</div>
+          <div class="cell">Обновити Кількість</div>
+          <div class="cell">Ціна за шт</div>
+          <div class="cell">Загальна сума</div>
+        </div>
+      </div>
+      <!-- <div class="tbody">
+        <div class="row">
+          <div class="cell">6161</div>
+          <div class="cell">6161616</div>
+          <div class="cell">6161616</div>
+          <div class="cell">6161616</div>
+          <div class="cell">6161616</div>
+        </div>
+      </div> -->
+      <!-- <div class="tfoot">
+        <div class="row">
+          <div class="cell">161616</div>
+          <div class="cell">6161</div>
+        </div>
+      </div> -->
+      
       <tbody class="colortable2">
         {% for item in cart %}
           {% with product=item.product %}
             <tr>
-              <td><a class="color" href="{% url 'cart:cart_remove' product.id %}"><i class="fa-solid fa-trash-can"></i></a></td>
+              <div><a class="color" href="{% url 'cart:cart_remove' product.id %}"><i class="fa-solid fa-trash-can"></i></a></div>
               <td>
                 <a href="{{ product.get_absolute_url }}">
                   <img class="size-img" src="{% if product.main_image %}{{ product.main_image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
@@ -49,7 +65,7 @@
                   {% csrf_token %}
                 </form>
               </td>
-              <!-- <td><a class="colora"  href="{% url 'cart:cart_remove' product.id %}">Видалити</a></td> -->
+
               <td >
                 {{ item.quantity }}
               </td>
