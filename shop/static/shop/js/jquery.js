@@ -45,3 +45,5 @@ function put_on_cart(product_id) {
     });
     return false;
 }
+
+$('.burger_categories').append($('.products-nav').html())

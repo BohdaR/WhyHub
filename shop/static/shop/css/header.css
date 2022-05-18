@@ -165,9 +165,12 @@
      .nav-list-item:last-child{
       margin: 0px 0px 0px 0rem ;
   }
-    }
+ }
     @media screen and (min-width:835px){
       .Pictogram{
        display: none; 
+      }
+      .burger_categories{
+        display: none;
       }
     }

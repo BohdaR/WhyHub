@@ -29,10 +29,10 @@
             </form>
           </div>
           <div class="nav-list-wrapper">
-            <div class="menu_icon">
+            <div class="menu_icon ">
               <span></span>
             </div>
-            <nav class="menu_body">
+            <nav class="menu_body ">
               <ul class="menu_list">
                 {% if request.user.is_authenticated %}
                 <li class="nav-list-item">
@@ -69,6 +69,7 @@
                 </li>
                 {% endif %}
               </ul>
+              <div class="burger_categories"></div>
             </nav>
           </div>
         </div>

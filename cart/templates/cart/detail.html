@@ -11,48 +11,31 @@
 
 
 {% block content %}
-  <p class="p">Мій кошик</p>
+  <p class="myshop">Мій кошик</p>
   {% if cart %}
-    <table  class="alingcenter" width="99%">
-      <div class="table">
-        <div class="caption"></div>
-        <div class="thead"> </div>
-        <div>
-          <div class="cell">Видалити</div>
-          <div class="cell">Фото</div>
-          <div class="cell">Товар</div>
-          <div class="cell">Обновити Кількість</div>
-          <div class="cell">Ціна за шт</div>
-          <div class="cell">Загальна сума</div>
-        </div>
-      </div>
-      <!-- <div class="tbody">
-        <div class="row">
-          <div class="cell">6161</div>
-          <div class="cell">6161616</div>
-          <div class="cell">6161616</div>
-          <div class="cell">6161616</div>
-          <div class="cell">6161616</div>
-        </div>
-      </div> -->
-      <!-- <div class="tfoot">
-        <div class="row">
-          <div class="cell">161616</div>
-          <div class="cell">6161</div>
-        </div>
-      </div> -->
+    <table  class="alingcenter" width="99%" > 
+      <thead>
+      <tr class="headercolor">
+        <td><div class="cell">Видалити</div></td>
+        <td><div class="cell">Фото</div></td>
+        <td><div class="cell">Товар</div></td>
+        <td><div class="cell">Обновити Кількість</div></td>
+        <td><div class="cell">Ціна за шт</div></td>
+        <td><div class="cell">Загальна сума</div></td>
+      </tr>
       
+      </thead>
       <tbody class="colortable2">
         {% for item in cart %}
           {% with product=item.product %}
-            <tr>
-              <div><a class="color" href="{% url 'cart:cart_remove' product.id %}"><i class="fa-solid fa-trash-can"></i></a></div>
-              <td>
+            <tr class="mobila">
+              <td class="delete_order"><a class="color" href="{% url 'cart:cart_remove' product.id %}"><i class="fa-solid fa-trash-can"></i></a></td>
+              <td class="image_order">
                 <a href="{{ product.get_absolute_url }}">
                   <img class="size-img" src="{% if product.main_image %}{{ product.main_image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
                 </a>
               </td>
-              <td >{{ product.name }}</td>
+              <td><div class="product_name">{{ product.name }}</div></td>
               <td>
                 <form  action="{% url 'cart:cart_add' product.id %}" method="post">
                   <div class="quantity-wrapper">
@@ -65,21 +48,18 @@
                   {% csrf_token %}
                 </form>
               </td>
-
-              <td >
-                {{ item.quantity }}
-              </td>
-              <td >{{ item.price }}грн.</td>
-              <td >{{ item.total_price }}грн.</td>
+              <td><p class="p">Ціна за шт:</p>{{ item.price }}грн.</td>
+              <td ><p class="p">Загальна сума:</p>
+                {{ item.total_price }}грн.</p></td>
             </tr>
           {% endwith %}
         {% endfor %}
       </tbody>
     </table>
-    <p class="text-right">
-      <td >{{ cart.get_total_price }}грн.</td>
+    <div class="text-right">
+      <td ><p class="text-right">До сплати: {{ cart.get_total_price }}грн.</p></td>
       <a class="colorhref" href="{% url 'order_create' %}" class="button">Оформити замовлення</a>
-    </p>
+    </div>
     <hr><br><br>
   {% else %}
     <h1 class="empty-cart">У вас немає товарів у кошику</h1>
