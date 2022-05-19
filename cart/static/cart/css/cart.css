@@ -81,6 +81,7 @@
     }
     .myshop{
         text-align: center;
+        color: white;
     }
     .quantity-wrapper{
         margin-left: 20px;
@@ -88,6 +89,12 @@
     .color{
         color: white;
         text-align: center;
+    }
+    .main_color{
+        background-color: black;
+    }
+    .text-right{
+        color: white;
     }
 }
 @media screen and (min-width:993px) {

@@ -164,7 +164,10 @@
      }
      .nav-list-item:last-child{
       margin: 0px 0px 0px 0rem ;
-  }
+       }
+       .burger_categories{
+        text-align: left;
+      }
  }
     @media screen and (min-width:835px){
       .Pictogram{
@@ -172,5 +175,6 @@
       }
       .burger_categories{
         display: none;
+        background-color: aliceblue;
       }
     }
