@@ -1,8 +1,6 @@
 {% extends 'shop/base.html' %}
 {% load shop_tags %}
 {% load static %}
-
-
 {% block title %}
     {{ title }}
 {% endblock %}
@@ -12,7 +10,6 @@
     <div class="container">
         {% show_categories cat_selected=cat_selected %}
         <div class="products-table">
-            
             {% if products %}
                 {% for el in products %}
                     <div class="card">
@@ -35,10 +32,10 @@
                                         <input type="hidden" name="product_id" value="{{ el.id }}">
                                         {{ cart_product_form.update }}
                                         {% csrf_token %}
-                                        <button onclick="put_on_cart({{ el.id }});" type="submit"  class="submit-button">
+                                        <button onclick="put_on_cart({{ el.id }});"type="submit"  class="add-to-cart-button {% if el.id in cart_products_id %}added-to-cart{% endif %}">
                                             <i class="fa fa-shopping-cart"></i>
                                         </button>
-                                        <button class="submit-button">
+                                        <button class="add-to-cart-button">
                                             <i class="fa fa-heart"></i>
                                         </button>
                                     </div>

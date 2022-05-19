@@ -8,6 +8,30 @@ if (slides.length>0) {
   slides[0].style.opacity = 1;
 }
 
+//cart
+
+let some_block = document.querySelectorAll('.add-to-cart-button');
+let cart_product_number = document.querySelector('.cart-product-number');
+
+
+function add_to_card(i) {
+    if (!(some_block[i].classList.value.includes('added-to-cart'))) {
+    some_block[i].classList.add('added-to-cart');
+    if (!(cart_product_number.innerHTML)){
+      cart_product_number.innerHTML = '1';
+    }
+    else {
+     cart_product_number.innerHTML = parseInt(cart_product_number.innerHTML) + 1;
+    }
+    }
+}
+
+for (let i = 0; i < some_block.length; i++) {
+    let x = 2;
+    some_block[i].addEventListener('click', function () { add_to_card(i); });
+}
+
+//slider
 
 function left_next_slide() {
   slides[i].style.opacity = 0;
