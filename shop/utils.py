@@ -3,7 +3,7 @@ from cart.forms import *
 
 
 class DataMixin:
-    paginate_by = 12
+    paginate_by = 30
 
     def get_user_context(self, **kwargs):
         context = kwargs
