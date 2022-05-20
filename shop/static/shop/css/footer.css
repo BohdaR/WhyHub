@@ -83,3 +83,12 @@
 	font-weight: bold;
 	text-align: center;
 }
+@media screen and (max-width:992px) {
+	.list-pages .page-number, .page-number-selected {
+		width: 30px;
+		font-size: 12px;
+	}
+	.list-pages ul li {
+		margin: 0 10px 0 0;
+	}
+}

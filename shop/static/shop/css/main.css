@@ -196,10 +196,10 @@
 
 .cart-product-number{
     position: absolute;
-    margin-left: 20px;
-    margin-top: -30px;
+    margin-left: 15px;
+    margin-top: -25px;
     padding: 10px;
-    font-size: 25px;
+    font-size: 15px;
     color: #9100ff;
 }
 

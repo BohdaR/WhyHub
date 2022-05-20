@@ -35,11 +35,11 @@
                 <nav class="menu_body ">
                     <ul class="menu_list">
                         {% if request.user.is_authenticated %}
-                            <li class="nav-list-item">
+                            <!-- <li class="nav-list-item">
                                 <a href="{% url 'cart:cart_detail' %}" class="nav-link">
                                     <i class="fa-regular fa-heart fa-lg"></i>
                                 </a>
-                            </li>
+                            </li> -->
                             <li class="nav-list-item">
                                 <a href="{% url 'cart:cart_detail' %}" class="nav-link">
                                     <h2 class="cart-product-number">{% if cart_product_number %} {{ cart_product_number }} {% endif %}</h2>
