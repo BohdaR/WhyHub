@@ -39,9 +39,7 @@
                     <ul class="menu_list">
                         <li class="nav-list-item">
                             <a href="{% url 'cart:cart_detail' %}" class="nav-link">
-                                <h2 class="cart-product-number">
-                                    {% if cart_product_number %} {{ cart_product_number }} {% endif %}
-                                </h2>
+                                <h2 class="cart-product-number">{% if cart_product_number %} {{ cart_product_number }} {% endif %}</h2>
                                 <i class="fa-solid fa-cart-shopping fa-lg"></i>
                             </a>
                         </li>
