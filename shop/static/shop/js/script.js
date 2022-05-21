@@ -5,7 +5,7 @@ let i = 0
 
 if (slides.length>0) {
   console.log(0)
-  slides[0].style.opacity = 1;
+  slides[0].style.opacity = '1';
 }
 
 //cart
@@ -15,41 +15,41 @@ let cart_product_number = document.querySelector('.cart-product-number');
 
 
 function add_to_card(i) {
-    if (!(some_block[i].classList.value.includes('added-to-cart'))) {
+  if (!(some_block[i].classList.value.includes('added-to-cart'))) {
     some_block[i].classList.add('added-to-cart');
     if (!(cart_product_number.innerHTML)){
       cart_product_number.innerHTML = '1';
     }
     else {
-     cart_product_number.innerHTML = parseInt(cart_product_number.innerHTML) + 1;
+      cart_product_number.innerHTML = parseInt(cart_product_number.innerHTML) + 1;
     }
-    }
+  }
 }
 
 for (let i = 0; i < some_block.length; i++) {
-    let x = 2;
-    some_block[i].addEventListener('click', function () { add_to_card(i); });
+  let x = 2;
+  some_block[i].addEventListener('click', function () { add_to_card(i); });
 }
 
 //slider
 
 function left_next_slide() {
-  slides[i].style.opacity = 0;
+  slides[i].style.opacity = '0';
   i++;
   if (i === slides.length) {
     i = 0;
   }
-  slides[i].style.opacity = 1;
+  slides[i].style.opacity = '1';
 }
 
 function right_next_slide() {
-  slides[i].style.opacity = 0;
+  slides[i].style.opacity = '0';
   if (i === 0) {
     i = slides.length;
   }
   i--;
   console.log(i)
-  slides[i].style.opacity = 1;
+  slides[i].style.opacity = '1';
 }
 
 if (Left[0])

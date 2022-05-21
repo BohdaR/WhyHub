@@ -5,6 +5,7 @@
 }
 
 .slider{
+  position: relative;
   display: flex;
   width: 90%;
   height: 450px; 
@@ -30,6 +31,7 @@
 }
 
 .slide-img{
+  position: absolute;
   max-height: 90%;
   max-width: 90%;
   opacity: 0;
