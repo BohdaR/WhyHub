@@ -1,4 +1,6 @@
 from django.contrib import admin
+
+from django.conf import settings
 from .models import *
 
 
@@ -29,6 +31,11 @@ class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
     search_fields = ('name', 'description')
     inlines = (ProductImagesInline, CharacteristicInline)
+
+    if not settings.DEBUG:
+        def view_on_site(self, obj):
+            url = reverse('product_detail', args=[obj.slug])
+            return 'http://34.118.100.219' + url
 
 
 admin.site.register(Category, CategoryAdmin)
