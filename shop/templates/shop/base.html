@@ -43,7 +43,7 @@
                                 <i class="fa-solid fa-cart-shopping fa-lg"></i>
                             </a>
                         </li>
-                        {% if request.user.is_authenticated %}
+                        {% if request.user.is_authenticated %} <!-- Якщо користучав зайшов дана іконка пропадає-->
                             <li class="nav-list-item">
                                 {{ user.username }} | <a href="{% url 'logout' %}" class="nav-link">Вийти</a>
                             </li>
