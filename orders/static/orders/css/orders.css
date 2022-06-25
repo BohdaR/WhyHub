@@ -5,6 +5,11 @@
     margin: 20px 0px;
 }
 
+.error-alert{
+    text-align: center;
+    color: red;
+}
+
 .order-checkbox{
     display: inline-block;
     align-items: center;
