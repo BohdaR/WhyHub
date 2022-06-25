@@ -7,17 +7,17 @@ class OrderCreateForm(forms.ModelForm):
         model = Order
         fields = ['first_name', 'last_name', 'email', 'city', 'address', 'phone_number', 'delivery_method', 'pay_method']
         widgets = {
-            'first_name':forms.TextInput(attrs={
+            'first_name': forms.TextInput(attrs={
                 'placeholder': 'Ім\'я'}),
-            'last_name':forms.TextInput(attrs={
+            'last_name': forms.TextInput(attrs={
                 'placeholder': 'Прізвище'}),
-            'email':forms.TextInput(attrs={
+            'email': forms.TextInput(attrs={
                 'placeholder': 'Eмейл'}),
-            'address':forms.TextInput(attrs={
+            'address': forms.TextInput(attrs={
                 'placeholder': 'Адреса доставки'}),
-            'phone_number':forms.TextInput(attrs={
+            'phone_number': forms.TextInput(attrs={
                 'placeholder': 'Номер телефону'}),
-            'city':forms.TextInput(attrs={
+            'city': forms.TextInput(attrs={
                 'placeholder': 'Ваше місто'}),
             'delivery_method': forms.RadioSelect(attrs={
                 'class': 'order-checkbox'}),
