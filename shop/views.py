@@ -1,6 +1,8 @@
 from django.contrib.auth import logout, login
 from django.contrib.auth.views import LoginView
 from django.shortcuts import redirect
+
+from .models import *
 from .utils import *
 from .forms import *
 from django.views.generic import ListView, DetailView, CreateView

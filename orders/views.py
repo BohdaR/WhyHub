@@ -5,6 +5,7 @@ from .models import OrderItem
 from .forms import OrderCreateForm
 from django.views.generic import FormView
 from cart.cart import Cart
+from django.db.models import Q, F
 
 
 class OrderCreate(FormView):
@@ -29,7 +30,7 @@ class OrderCreate(FormView):
                                      quantity=item['quantity'])
 
             product = Product.objects.get(id=item['product'].id)
-            product.stock = item['product'].stock - item['quantity']
+            product.stock = F('stock') - item['quantity']
 
             if item['product'].stock - item['quantity'] == 0:
                 product.available = False

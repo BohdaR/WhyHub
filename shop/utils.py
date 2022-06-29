@@ -1,4 +1,3 @@
-from .models import *
 from cart.forms import *
 
 
